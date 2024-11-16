@@ -1,5 +1,9 @@
 # BLENDED_LERNING
 # Implementation-of-Multiple-Linear-Regression-Model-with-Cross-Validation-for-Predicting-Car-Prices
+<H3>NAME: KEERTHANA S</H3>
+<H3>REGISTER NO.: 212223240070</H3>
+<H3>EX. NO.3</H3>
+<H3>DATE:</H3>
 
 ## AIM:
 To write a program to predict the price of cars using a multiple linear regression model and evaluate the model performance using cross-validation.
