@@ -1,9 +1,8 @@
-# BLENDED_LERNING
 # Implementation-of-Multiple-Linear-Regression-Model-with-Cross-Validation-for-Predicting-Car-Prices
 <H3>NAME: KEERTHANA S</H3>
 <H3>REGISTER NO.: 212223240070</H3>
 <H3>EX. NO.3</H3>
-<H3>DATE:</H3>
+<H3>DATE: 02.09.24</H3>
 
 ## AIM:
 To write a program to predict the price of cars using a multiple linear regression model and evaluate the model performance using cross-validation.
@@ -47,8 +46,6 @@ To write a program to predict the price of cars using a multiple linear regressi
 ```py
 # Importing necessary libraries
 import pandas as pd
-import numpy as np
-import statsmodels.api as sm
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
@@ -56,39 +53,33 @@ import matplotlib.pyplot as plt
 # Load the dataset
 data = pd.read_csv("https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-ML240EN-SkillsNetwork/labs/data/CarPrice_Assignment.csv")
 
-# Data preprocessing
-# Dropping unnecessary columns and handling categorical variables
+# Preprocessing: Drop unnecessary columns and encode categorical variables
 data = data.drop(['CarName', 'car_ID'], axis=1)
 data = pd.get_dummies(data, drop_first=True)
 
-# Splitting the data into features and target variable
+# Features and target
 X = data.drop('price', axis=1)
 y = data['price']
 
-# Splitting the dataset into training and testing sets
+# Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Creating the model
+# Train the model
 model = LinearRegression()
-
-# Fitting the model on the training data
 model.fit(X_train, y_train)
 
-# Evaluating model performance using cross-validation
+# Cross-validation scores
 cv_scores = cross_val_score(model, X, y, cv=5)
+print("Cross-validation Mean Score:", cv_scores.mean())
 
-# Printing cross-validation scores
-print("Cross-validation scores:", cv_scores)
-print("Mean cross-validation score:", cv_scores.mean())
-
-# Print model coefficients
+# Model parameters
 print("Intercept:", model.intercept_)
 print("Coefficients:", model.coef_)
 
-# Make predictions
+# Predictions
 predictions = model.predict(X_test)
 
-# Visualizing actual vs predicted prices
+# Plot actual vs predicted prices
 plt.scatter(y_test, predictions)
 plt.xlabel("Actual Prices")
 plt.ylabel("Predicted Prices")
@@ -99,7 +90,7 @@ plt.show()
 ```
 
 ## Output:
-<img width="801" alt="Screenshot 2024-10-06 at 8 53 33 PM" src="https://github.com/user-attachments/assets/1a84f7be-ffb0-4073-b864-39555861f443">
+![image](https://github.com/user-attachments/assets/bf4c9b32-7b8a-4e72-903c-ec5bda3f6245)
 
 
 ## Result:
